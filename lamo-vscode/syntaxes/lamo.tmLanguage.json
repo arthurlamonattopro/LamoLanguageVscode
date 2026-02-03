@@ -1,0 +1,74 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Lamo",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#functions"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.lamo",
+				"match": "\\b(if|else|while|for|return)\\b"
+			},
+			{
+				"name": "keyword.other.lamo",
+				"match": "\\b(let|fn|print)\\b"
+			},
+			{
+				"name": "constant.language.boolean.lamo",
+				"match": "\\b(true|false)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.lamo",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.lamo",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.lamo",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.lamo",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.lamo",
+				"match": "\\b\\d+\\b"
+			}]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "entity.name.function.lamo",
+				"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+			}]
+		}
+	},
+	"scopeName": "source.lamo"
+}

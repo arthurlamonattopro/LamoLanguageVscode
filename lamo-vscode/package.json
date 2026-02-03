@@ -1,0 +1,41 @@
+{
+    "name": "lamo-vscode",
+    "displayName": "Lamo Language Support",
+    "description": "Suporte para a linguagem de programação Lamo",
+    "version": "0.1.0",
+    "publisher": "lamo",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "lamo",
+                "aliases": [
+                    "Lamo",
+                    "lamo"
+                ],
+                "extensions": [
+                    ".lamo"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lamo",
+                "scopeName": "source.lamo",
+                "path": "./syntaxes/lamo.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "lamo",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
