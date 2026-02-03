@@ -1,14 +1,18 @@
 {
     "name": "lamo-vscode",
     "displayName": "Lamo Language Support",
-    "description": "Suporte para a linguagem de programação Lamo",
-    "version": "0.1.0",
+    "description": "Suporte completo para a linguagem Lamo, incluindo destaque de sintaxe e execução direta.",
+    "version": "0.2.0",
     "publisher": "lamo",
     "engines": {
         "vscode": "^1.60.0"
     },
+    "main": "./extension.js",
     "categories": [
         "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:lamo"
     ],
     "contributes": {
         "languages": [
@@ -36,6 +40,29 @@
                 "language": "lamo",
                 "path": "./snippets/snippets.json"
             }
-        ]
+        ],
+        "commands": [
+            {
+                "command": "lamo.runFile",
+                "title": "Lamo: Run File",
+                "icon": "$(play)"
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "when": "resourceLangId == lamo",
+                    "command": "lamo.runFile",
+                    "group": "navigation"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "when": "resourceLangId == lamo",
+                    "command": "lamo.runFile",
+                    "group": "navigation"
+                }
+            ]
+        }
     }
 }
